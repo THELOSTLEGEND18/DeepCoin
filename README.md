@@ -4,23 +4,69 @@ DeepCoin is an AI-driven platform designed to provide you with actionable insigh
 
 ## Setup Instructions
 
-1.  **Clone Repo**:
+### Prerequisites
+- Docker and Docker Compose installed
+- Git installed
+- (Optional) Git LFS for large model files
+
+### Quick Start
+
+1.  **Clone Repository**:
     ```bash
-    git clone https://github.com/ItsSpirax/DeepCoin
+    git clone https://github.com/THELOSTLEGEND18/DeepCoin.git
     cd DeepCoin
     ```
 
-2.  **Config Env**:
-    - `cp .\Backend\.env.example .\Backend\.env`
-    - Edit `.\Backend\.env`
-
-3.  **Run Docker**:
+2.  **Configure Environment**:
+    - Create a `.env` file in the `Backend` directory:
     ```bash
+    cp Backend/.env.example Backend/.env
+    ```
+    - Edit `Backend/.env` and add your API keys:
+      - CoinMarketCap API key
+      - YouTube Data API key
+      - Reddit API credentials
+      - Google News SERP API key
+
+3.  **Build and Run with Docker**:
+    ```bash
+    # Build both frontend and backend containers
+    docker compose build
+    
+    # Start all services in detached mode
     docker compose up -d
     ```
 
-4.  **Access Website**:
-    - Open browser to `http://localhost:3000`.
+4.  **Access the Application**:
+    - Frontend: Open browser to `http://localhost:3000`
+    - Backend API: `http://localhost:8000`
+    - API Documentation: `http://localhost:8000/docs`
+
+### Manual Build (Without Docker)
+
+**Backend:**
+```bash
+cd Backend
+pip install -r requirements.txt
+python main.py
+```
+
+**Frontend:**
+```bash
+cd Frontend
+npm install
+npm run build
+npm start
+```
+
+### Available Commands
+
+- `docker compose up -d` - Start all services
+- `docker compose down` - Stop all services
+- `docker compose build frontend` - Rebuild frontend only
+- `docker compose build backend` - Rebuild backend only
+- `docker compose logs -f` - View logs
+- `docker compose restart` - Restart all services
 
 ## Key Features
 
